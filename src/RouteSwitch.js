@@ -5,12 +5,12 @@ import App from "./App";
 const RouteSwitch = () => {
   return (
     <BrowserRouter>
-        <nav>
-            <ul>
-            <Link to="/">Home</Link>
-            <Link to="/Cart">Cart</Link>
-            </ul>
-        </nav>
+      <nav>
+        <ul>
+          <Link to="/">Home</Link>
+          <Link to="/Cart">Cart</Link>
+        </ul>
+      </nav>
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/Cart" element={<h1>Cart</h1>} />
