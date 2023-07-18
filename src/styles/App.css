@@ -56,16 +56,11 @@ body {
   color: var(--primary-color);
 }
 
-.logo-text {
-  letter-spacing: 2px;
-}
-
 .logo-icon {
   width: 24px;
   height: 24px;
   fill: var(--secondary-color);
 }
-
 
 
 
