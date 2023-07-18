@@ -1,4 +1,19 @@
 :root {
+  --primary-color: #2C3E50;
+  --secondary-color: #8E44AD;
+  --background-color: #F5F5F5;
+  --text-color: #333333;
+  --border-color: #E0E0E0;
+  
+  --font-family: 'Roboto', sans-serif;
+  --font-size: 16px;
+  
+  --spacing-small: 8px;
+  --spacing-medium: 16px;
+  --spacing-large: 24px;
+  
+  --border-radius: 4px;
+  --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 
@@ -34,17 +49,23 @@ body {
 .logo-container {
   display: flex;
   align-items: center;
-  gap: 8px;
-  font-size: 20px;
+  gap: var(--spacing-small);
+  font-family: var(--font-family);
+  font-size: 24px;
   font-weight: bold;
-  color: #333333;
+  color: var(--primary-color);
+}
+
+.logo-text {
+  letter-spacing: 2px;
 }
 
 .logo-icon {
   width: 24px;
   height: 24px;
-  fill: #333333;
+  fill: var(--secondary-color);
 }
+
 
 
 
