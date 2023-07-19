@@ -1,19 +1,19 @@
 import React from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import NavBar from "./components/NavBar";
 import App from "./App";
+import Men from "./components/Men";
+import Women from "./components/Women";
 
 const RouteSwitch = () => {
   return (
     <BrowserRouter>
-      <nav>
-        <ul>
-          <Link to="/">Home</Link>
-          <Link to="/Cart">Cart</Link>
-        </ul>
-      </nav>
       <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="/Cart" element={<h1>Cart</h1>} />
+        <Route path="/" element={<NavBar />}>
+          <Route path="/" element={<App />} />
+          <Route path="/men" element={<Men />} />
+          <Route path="/women" element={<Women />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );

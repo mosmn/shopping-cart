@@ -1,12 +1,8 @@
 import "./styles/App.css";
-import  Logo from "./components/Logo";
+import Logo from "./components/Logo";
 
 const App = () => {
-  return (
-    <>
-      <Logo />
-    </>
-  );
+  return <></>;
 };
 
 export default App;

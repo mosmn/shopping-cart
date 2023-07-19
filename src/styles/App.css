@@ -1,21 +1,20 @@
 :root {
-  --primary-color: #2C3E50;
-  --secondary-color: #8E44AD;
-  --background-color: #F5F5F5;
+  --primary-color: #2c3e50;
+  --secondary-color: #8e44ad;
+  --background-color: #f5f5f5;
   --text-color: #333333;
-  --border-color: #E0E0E0;
-  
-  --font-family: 'Roboto', sans-serif;
+  --border-color: #e0e0e0;
+
+  --font-family: "Roboto", sans-serif;
   --font-size: 16px;
-  
+
   --spacing-small: 8px;
   --spacing-medium: 16px;
   --spacing-large: 24px;
-  
+
   --border-radius: 4px;
   --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-
 
 * {
   margin: 0;
@@ -61,7 +60,3 @@ body {
   height: 24px;
   fill: var(--secondary-color);
 }
-
-
-
-
