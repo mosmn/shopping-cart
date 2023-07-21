@@ -60,3 +60,68 @@ body {
   height: 24px;
   fill: var(--secondary-color);
 }
+
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.header {
+  background-color: #2C3E50;
+  color: #FFFFFF;
+  text-align: center;
+  padding: 20px;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.main-content {
+  flex: 1;
+  padding: 20px;
+}
+
+.hero-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px;
+}
+
+.hero-section h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.hero-section p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.shop-now-btn {
+  padding: 12px 20px;
+  font-size: 18px;
+  font-weight: bold;
+  background-color: #2C3E50;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.shop-now-btn:hover {
+  background-color: #8E44AD;
+}
+
+.footer {
+  background-color: #2C3E50;
+  color: #FFFFFF;
+  text-align: center;
+  padding: 20px;
+}
