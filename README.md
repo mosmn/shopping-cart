@@ -4,7 +4,7 @@ This is a simple React-based web application for an online fashion and clothing 
 
 ## Live Demo
 
-A live demo of the project can be accessed at [Link to Live Demo]().
+A live demo of the project can be accessed at [Link to Live Demo](https://mosmn.github.io/shopping-cart/).
 
 ## Tech Stack
 
