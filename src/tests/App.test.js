@@ -1,8 +1,9 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
 import App from "../App";
 
-describe("App component", () => {
-  //
+test("renders welcome message", () => {
+  render(<App />);
+  const welcomeMessage = screen.getByText(/Welcome to Threads & Co./i);
+  expect(welcomeMessage).toBeInTheDocument();
 });
