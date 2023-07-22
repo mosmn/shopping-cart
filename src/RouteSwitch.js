@@ -20,9 +20,17 @@ const RouteSwitch = () => {
         <main className="pages">
           <Routes>
             <Route path="/" element={<App />} />
-            <Route path="/products" element={<Products addToCart={addToCart} />} />
+            <Route
+              path="/products"
+              element={<Products addToCart={addToCart} />}
+            />
             <Route path="/about" element={<About />} />
-            <Route path="/cart" element={<Cart cartItems={cartItems} setCartItems={setCartItems} />} />
+            <Route
+              path="/cart"
+              element={
+                <Cart cartItems={cartItems} setCartItems={setCartItems} />
+              }
+            />
           </Routes>
         </main>
         <footer className="footer">

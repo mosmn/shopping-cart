@@ -19,7 +19,10 @@ const NavBar = ({ cartItems }) => {
         <Link to="/products">Products</Link>
         <Link to="/about">About</Link>
         <Link to="/cart">
-          <img src="https://img.icons8.com/material-outlined/24/000000/shopping-cart.png" alt="Cart" />
+          <img
+            src="https://img.icons8.com/material-outlined/24/000000/shopping-cart.png"
+            alt="Cart"
+          />
           {cartCount > 0 && <span className="cart-count">{cartCount}</span>}
         </Link>
       </div>

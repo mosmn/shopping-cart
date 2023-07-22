@@ -4,7 +4,9 @@ const Cart = ({ cartItems, setCartItems }) => {
   const totalPrice = cartItems.reduce((total, item) => total + item.price, 0);
 
   const removeFromCart = (productId) => {
-    setCartItems((prevCartItems) => prevCartItems.filter((item) => item.id !== productId));
+    setCartItems((prevCartItems) =>
+      prevCartItems.filter((item) => item.id !== productId),
+    );
   };
 
   return (

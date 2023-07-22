@@ -10,7 +10,8 @@ const Products = ({ addToCart }) => {
       .then((data) => {
         const clothingProducts = data.filter(
           (product) =>
-            product.category === "men's clothing" || product.category === "women's clothing"
+            product.category === "men's clothing" ||
+            product.category === "women's clothing",
         );
         setClothingProducts(clothingProducts);
       });
@@ -31,7 +32,9 @@ const Products = ({ addToCart }) => {
             <h3>{product.title}</h3>
             <p>${product.price}</p>
             <p>{product.category}</p>
-            <button onClick={() => handleAddToCart(product)}>Add to Cart</button>
+            <button onClick={() => handleAddToCart(product)}>
+              Add to Cart
+            </button>
           </div>
         ))}
       </div>
