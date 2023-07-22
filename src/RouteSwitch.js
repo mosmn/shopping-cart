@@ -14,7 +14,7 @@ const RouteSwitch = () => {
   };
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/shopping-cart">
       <div className="App">
         <NavBar cartItems={cartItems} setCartItems={setCartItems} />
         <main className="pages">
