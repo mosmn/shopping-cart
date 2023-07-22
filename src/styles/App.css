@@ -60,14 +60,14 @@ body {
   align-items: center;
   gap: var(--spacing-small);
   font-family: var(--font-family);
-  font-size: 24px;
+  font-size: 36px;
   font-weight: bold;
   color: var(--primary-color);
 }
 
 .logo-icon {
-  width: 24px;
-  height: 24px;
+  width: 40px;
+  height: 40px;
   fill: var(--secondary-color);
 }
 
