@@ -17,7 +17,7 @@ const Products = ({ addToCart }) => {
         const clothingProducts = data.filter(
           (product) =>
             product.category === "men's clothing" ||
-            product.category === "women's clothing"
+            product.category === "women's clothing",
         );
         const productsWithQuantity = clothingProducts.map((product) => ({
           ...product,
@@ -35,7 +35,9 @@ const Products = ({ addToCart }) => {
   }, []);
 
   const handleAddToCart = (product) => {
-    const existingItemIndex = cartItems.findIndex((item) => item.id === product.id);
+    const existingItemIndex = cartItems.findIndex(
+      (item) => item.id === product.id,
+    );
     if (existingItemIndex !== -1) {
       const updatedCartItems = [...cartItems];
       updatedCartItems[existingItemIndex] = {
@@ -44,12 +46,13 @@ const Products = ({ addToCart }) => {
       };
       setCartItems(updatedCartItems);
     } else {
-      setCartItems((prevCartItems) => [...prevCartItems, { ...product, quantity: 1 }]);
+      setCartItems((prevCartItems) => [
+        ...prevCartItems,
+        { ...product, quantity: 1 },
+      ]);
     }
     addToCart(product);
   };
-  
-  
 
   if (loading) {
     return (

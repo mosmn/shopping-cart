@@ -1,19 +1,22 @@
 import React from "react";
 
 const Cart = ({ cartItems, setCartItems }) => {
-  const totalPrice = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+  const totalPrice = cartItems.reduce(
+    (total, item) => total + item.price * item.quantity,
+    0,
+  );
 
   const removeFromCart = (productId) => {
     setCartItems((prevCartItems) =>
-      prevCartItems.filter((item) => item.id !== productId)
+      prevCartItems.filter((item) => item.id !== productId),
     );
   };
 
   const incrementQuantity = (productId) => {
     setCartItems((prevCartItems) =>
       prevCartItems.map((item) =>
-        item.id === productId ? { ...item, quantity: item.quantity + 1 } : item
-      )
+        item.id === productId ? { ...item, quantity: item.quantity + 1 } : item,
+      ),
     );
   };
 
@@ -22,8 +25,8 @@ const Cart = ({ cartItems, setCartItems }) => {
       prevCartItems.map((item) =>
         item.id === productId
           ? { ...item, quantity: item.quantity > 1 ? item.quantity - 1 : 1 }
-          : item
-      )
+          : item,
+      ),
     );
   };
 
@@ -42,9 +45,13 @@ const Cart = ({ cartItems, setCartItems }) => {
                   <h3>{item.title}</h3>
                   <p>${item.price}</p>
                   <div className="quantity-controls">
-                    <button onClick={() => decrementQuantity(item.id)}>−</button>
+                    <button onClick={() => decrementQuantity(item.id)}>
+                      −
+                    </button>
                     <p>{item.quantity}</p>
-                    <button onClick={() => incrementQuantity(item.id)}>+</button>
+                    <button onClick={() => incrementQuantity(item.id)}>
+                      +
+                    </button>
                   </div>
                 </div>
                 <button onClick={() => removeFromCart(item.id)}>Remove</button>
