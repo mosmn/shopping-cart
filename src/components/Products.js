@@ -7,9 +7,10 @@ const Products = ({ addToCart }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("https://fakestoreapi.com/products")
-      .then((res) => res.json())
-      .then((data) => {
+    const fetchProducts = async () => {
+      try {
+        const response = await fetch("https://fakestoreapi.com/products");
+        const data = await response.json();
         const clothingProducts = data.filter(
           (product) =>
             product.category === "men's clothing" ||
@@ -17,11 +18,13 @@ const Products = ({ addToCart }) => {
         );
         setClothingProducts(clothingProducts);
         setLoading(false);
-      })
-      .catch((error) => {
+      } catch (error) {
         console.error("Error fetching products:", error);
         setLoading(false);
-      });
+      }
+    };
+
+    fetchProducts();
   }, []);
 
   const handleAddToCart = (product) => {
@@ -33,7 +36,7 @@ const Products = ({ addToCart }) => {
     return (
       <div className="loading">
         <div className="loading-image">
-        <Logo/>
+          <Logo/>
         </div>
       </div>
     );
