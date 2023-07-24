@@ -10,7 +10,17 @@ const RouteSwitch = () => {
   const [cartItems, setCartItems] = useState([]);
 
   const addToCart = (product) => {
-    setCartItems((prevCartItems) => [...prevCartItems, product]);
+    const existingItemIndex = cartItems.findIndex((item) => item.id === product.id);
+    if (existingItemIndex !== -1) {
+      const updatedCartItems = [...cartItems];
+      updatedCartItems[existingItemIndex] = {
+        ...updatedCartItems[existingItemIndex],
+        quantity: updatedCartItems[existingItemIndex].quantity + 1,
+      };
+      setCartItems(updatedCartItems);
+    } else {
+      setCartItems((prevCartItems) => [...prevCartItems, { ...product, quantity: 1 }]);
+    }
   };
 
   return (

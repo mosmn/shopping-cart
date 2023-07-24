@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Logo from "./Logo"; 
+import Logo from "./Logo";
 
 const Products = ({ addToCart }) => {
   const [clothingProducts, setClothingProducts] = useState([]);
@@ -10,13 +10,20 @@ const Products = ({ addToCart }) => {
     const fetchProducts = async () => {
       try {
         const response = await fetch("https://fakestoreapi.com/products");
+        if (!response.ok) {
+          throw new Error("Error fetching products");
+        }
         const data = await response.json();
         const clothingProducts = data.filter(
           (product) =>
             product.category === "men's clothing" ||
             product.category === "women's clothing"
         );
-        setClothingProducts(clothingProducts);
+        const productsWithQuantity = clothingProducts.map((product) => ({
+          ...product,
+          quantity: 1,
+        }));
+        setClothingProducts(productsWithQuantity);
         setLoading(false);
       } catch (error) {
         console.error("Error fetching products:", error);
@@ -28,15 +35,27 @@ const Products = ({ addToCart }) => {
   }, []);
 
   const handleAddToCart = (product) => {
-    setCartItems((prevCartItems) => [...prevCartItems, product]);
+    const existingItemIndex = cartItems.findIndex((item) => item.id === product.id);
+    if (existingItemIndex !== -1) {
+      const updatedCartItems = [...cartItems];
+      updatedCartItems[existingItemIndex] = {
+        ...updatedCartItems[existingItemIndex],
+        quantity: updatedCartItems[existingItemIndex].quantity + 1,
+      };
+      setCartItems(updatedCartItems);
+    } else {
+      setCartItems((prevCartItems) => [...prevCartItems, { ...product, quantity: 1 }]);
+    }
     addToCart(product);
   };
+  
+  
 
   if (loading) {
     return (
       <div className="loading">
         <div className="loading-image">
-          <Logo/>
+          <Logo />
         </div>
       </div>
     );
