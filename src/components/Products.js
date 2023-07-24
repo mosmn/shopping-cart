@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
+import Logo from "./Logo"; 
 
 const Products = ({ addToCart }) => {
   const [clothingProducts, setClothingProducts] = useState([]);
   const [cartItems, setCartItems] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
@@ -11,9 +13,14 @@ const Products = ({ addToCart }) => {
         const clothingProducts = data.filter(
           (product) =>
             product.category === "men's clothing" ||
-            product.category === "women's clothing",
+            product.category === "women's clothing"
         );
         setClothingProducts(clothingProducts);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error fetching products:", error);
+        setLoading(false);
       });
   }, []);
 
@@ -21,6 +28,16 @@ const Products = ({ addToCart }) => {
     setCartItems((prevCartItems) => [...prevCartItems, product]);
     addToCart(product);
   };
+
+  if (loading) {
+    return (
+      <div className="loading">
+        <div className="loading-image">
+        <Logo/>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="products-container">
